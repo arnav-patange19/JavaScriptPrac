@@ -43,12 +43,44 @@ var todos = [
 
 function getAllTodos() {
   var response = {
-    todos: todos,
+    hello: todos,
   };
   return response;
 }
+var id;
+function getTodoById(id) {
+  var ToDo = {
+    hello: todos[id - 1],
+  };
+  return ToDo;
+  //write code to call id 4
+}
+var todo;
+var new_todo;
+function addToDo(new_todo) {
+  todos.push(new_todo);
+  //add new todo
+}
+new_todo = {
+  new_id: "6",
+  new_name: "arnav",
+};
 
+function deleteToDo(id) {
+  todos.splice([id - 1], 1);
+  //delete todo
+}
+todo = {
+  valuex: "specified",
+  win: "yes",
+};
+function updateToDo(id, todo) {
+  todos[id - 1] = todo; //here todo is the todo which contains updated value
+}
 // Main Methods
-
-allTodos = getAllTodos();
-console.log(allTodos);
+console.log(getTodoById(4)); //printing todo by id
+addToDo(new_todo); //added new todo specified above
+deleteToDo(4); //removed todo with id 4
+console.log(getAllTodos()); //printing all todos
+updateToDo(4, todo);
+console.log(getAllTodos());
