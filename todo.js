@@ -60,14 +60,31 @@ function getTodoById(id) {
 }
 var todo;
 var newToDo;
+newToDo = {
+  id: 6,
+  title: "arnav",
+  due_date: "20-08-24",
+};
 function addToDo(newToDo) {
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].id == newToDo.id) {
+      console.log("todo with same id exists");
+      return 1;
+    }
+  }
+  if (!newToDo.title || !newToDo.due_date) {
+    console.log("Todo must have a title and a due date");
+    return 2;
+  }
+  if (!newToDo.hasOwnProperty("priority")) {
+    newToDo.priority = "low";
+  }
+  if (!newToDo.hasOwnProperty("status")) {
+    newToDo.status = "not-started";
+  }
   todos.push(newToDo);
   //add new todo
 }
-newToDo = {
-  new_id: "6",
-  new_name: "arnav",
-};
 
 function deleteToDo(id) {
   for (let b = 0; b < todos.length; b++) {
@@ -95,9 +112,9 @@ function updateToDo(id, todo) {
 }
 // Main Methods
 // console.log(getTodoById(400)); //printing todo by id
-// addToDo(newToDo); //added new todo specified above
+addToDo(newToDo); //added new todo specified above
 // console.log(getAllTodos()); //printing all todos
 // deleteToDo(3); //removed todo with id 4
 // console.log(getAllTodos());
-updateToDo(5, todo);
+// updateToDo(5, todo);
 console.log(getAllTodos());
