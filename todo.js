@@ -24,7 +24,7 @@ var todos = [
     status: "pending",
   },
   {
-    id: 4,
+    id: 400,
     title: "Prepare presentation",
     description: "Create slides for the upcoming client meeting",
     due_date: "2024-08-16",
@@ -49,25 +49,34 @@ function getAllTodos() {
 }
 var id;
 function getTodoById(id) {
-  var ToDo = {
-    hello: todos[id - 1],
-  };
-  return ToDo;
+  for (let a = 0; a < todos.length; a++) {
+    if (todos[a].id == id) {
+      return todos[a];
+    }
+  }
+  console.log("invalid");
+
   //write code to call id 4
 }
 var todo;
-var new_todo;
-function addToDo(new_todo) {
-  todos.push(new_todo);
+var newToDo;
+function addToDo(newToDo) {
+  todos.push(newToDo);
   //add new todo
 }
-new_todo = {
+newToDo = {
   new_id: "6",
   new_name: "arnav",
 };
 
 function deleteToDo(id) {
-  todos.splice([id - 1], 1);
+  for (let b = 0; b < todos.length; b++) {
+    if (todos[b].id == id) {
+      todos.splice(b, 1);
+      break;
+    }
+  }
+  console.log("id is invalid");
   //delete todo
 }
 todo = {
@@ -75,12 +84,20 @@ todo = {
   win: "yes",
 };
 function updateToDo(id, todo) {
-  todos[id - 1] = todo; //here todo is the todo which contains updated value
+  for (let c = 0; c < todos.length; c++) {
+    if (todos[c].id == id) {
+      todos[c] = todo;
+      return 0;
+    }
+  }
+  console.log("invalid id");
+  //here todo is the todo which contains updated value
 }
 // Main Methods
-console.log(getTodoById(4)); //printing todo by id
-addToDo(new_todo); //added new todo specified above
-deleteToDo(4); //removed todo with id 4
-console.log(getAllTodos()); //printing all todos
-updateToDo(4, todo);
+// console.log(getTodoById(400)); //printing todo by id
+// addToDo(newToDo); //added new todo specified above
+// console.log(getAllTodos()); //printing all todos
+// deleteToDo(3); //removed todo with id 4
+// console.log(getAllTodos());
+updateToDo(5, todo);
 console.log(getAllTodos());
