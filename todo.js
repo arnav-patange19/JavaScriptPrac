@@ -24,7 +24,7 @@ var todos = [
     status: "pending",
   },
   {
-    id: 400,
+    id: 4,
     title: "Prepare presentation",
     description: "Create slides for the upcoming client meeting",
     due_date: "2024-08-16",
@@ -62,12 +62,7 @@ var todo;
 var newToDo;
 function addToDo(newToDo) {
   todos.push(newToDo);
-  //add new todo
 }
-newToDo = {
-  new_id: "6",
-  new_name: "arnav",
-};
 
 function deleteToDo(id) {
   for (let b = 0; b < todos.length; b++) {
@@ -99,5 +94,48 @@ function updateToDo(id, todo) {
 // console.log(getAllTodos()); //printing all todos
 // deleteToDo(3); //removed todo with id 4
 // console.log(getAllTodos());
-updateToDo(5, todo);
+// updateToDo(5, todo);
+// console.log(getAllTodos());
+
+// Get All Todos
+var allTodos = getAllTodos();
+console.log(allTodos.hello.length);
+
+// Adding A New Todo
+
+var newToDo = {
+  id: 675,
+  title: "New Task",
+  description: "This is a new task",
+  due_date: "2024-08-25",
+  priority: "low",
+  status: "not-started",
+};
+
+var added = addToDo(newToDo);
 console.log(getAllTodos());
+
+// Get Todo by Id
+var todoById = getTodoById(675);
+console.log(todoById);
+
+// Delete Todo By Id
+var deleted = deleteToDo(675);
+console.log(getAllTodos());
+
+// Check if the todo is deleted
+console.log(getTodoById(675));
+
+// Add a new todo with duplicate id
+var newToDo = {
+  id: 1,
+  title: "Duplicating..",
+  description: "This is a new task",
+  due_date: "2024-08-25",
+  priority: "low",
+  status: "not-started",
+};
+
+var added = addToDo(newToDo);
+console.log(getAllTodos());
+// TODO: ^ This should fail. The id is already present in the todos array.
