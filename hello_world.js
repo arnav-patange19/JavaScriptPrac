@@ -29,3 +29,24 @@ console.log(x); //shorthand assingment operator
 
 var word = "cat"; //working with strings
 console.log(word[1]); //prints character at index 1 of the string
+
+const obj = {
+  //using objects
+  favoriteNumber: 42,
+  greeting: "Hello World",
+  useGreeting: true,
+  address: {
+    street: "Malad",
+    city: "Mumbai",
+  },
+};
+console.log(obj.greeting);
+console.log(obj.address);
+
+console.log(Number("70"));
+var check = String(82031);
+if (typeof check == "string") {
+  console.log("The Number " + check + " is a string");
+} else {
+  console.log("The Number " + check + " is not a string");
+}
