@@ -43,7 +43,7 @@ var todos = [
 
 function getAllTodos() {
   var response = {
-    hello: todos,
+    response: todos,
   };
   return response;
 }
